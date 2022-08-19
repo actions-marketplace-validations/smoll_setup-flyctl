@@ -13,7 +13,7 @@ jobs:
     steps:
       # This step checks out a copy of your repository.
       - uses: actions/checkout@v2
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: jmoll/setup-flyctl@1.1.1
       - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
@@ -22,7 +22,7 @@ jobs:
 To use a specific version of `flyctl`:
 
 ```yaml
-- uses: superfly/flyctl-actions/setup-flyctl@master
+- uses: jmoll/setup-flyctl@1.1.1
   with:
     version: 0.0.308
 ```
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: jmoll/setup-flyctl@1.1.1
       - run: "flyctl ssh console --command 'sh ./myscript.sh'"
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
